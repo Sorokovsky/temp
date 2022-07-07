@@ -112,3 +112,16 @@ export const watch = () => {
     gulp.watch("src/fonts/**/*.*", gulp.parallel(fonts));
     gulp.watch("src/img/**/*.*", gulp.parallel(images));
 }
+export default gulp.series(
+    delDocs,
+    gulp.parallel(
+        watch,
+        html,
+        css,
+        js,
+        files,
+        fonts,
+        images,
+        browserSyncFunc
+    )
+);
