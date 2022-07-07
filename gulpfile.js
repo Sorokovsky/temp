@@ -98,3 +98,17 @@ export const images = () => {
         stream: true
     }));
 }
+export const clear = () => {
+    return cache.clearAll();
+}
+export const delDocs = () => {
+    return del("docs");
+}
+export const watch = () => {
+    gulp.watch("src/sass/**/*.sass", gulp.parallel(css));
+    gulp.watch("src/js/**/*.js", gulp.parallel(js));
+    gulp.watch("src/pug/**/*.pug", gulp.parallel(html));
+    gulp.watch("src/*.*", gulp.parallel(files));
+    gulp.watch("src/fonts/**/*.*", gulp.parallel(fonts));
+    gulp.watch("src/img/**/*.*", gulp.parallel(images));
+}
